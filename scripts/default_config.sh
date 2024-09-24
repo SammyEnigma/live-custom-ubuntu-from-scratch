@@ -5,9 +5,9 @@
 # Usage: Copy this file to config.sh and make changes there.  Keep this file (default_config.sh) as-is
 #   so that subsequent changes can be easily merged from upstream.  Keep all customiations in config.sh
 
-# The version of Ubuntu to generate.  Successfully tested: bionic, cosmic, disco, eoan, focal, groovy, jammy
+# The version of Ubuntu to generate.  Successfully tested LTS: bionic, focal, jammy, noble
 # See https://wiki.ubuntu.com/DevelopmentCodeNames for details
-export TARGET_UBUNTU_VERSION="jammy"
+export TARGET_UBUNTU_VERSION="focal"
 
 # The Ubuntu Mirror URL. It's better to change for faster download.
 # More mirrors see: https://launchpad.net/ubuntu/+archivemirrors
@@ -41,29 +41,29 @@ export TARGET_PACKAGE_REMOVE="
 function customize_image() {
     # install graphics and desktop
     apt-get install -y \
-    plymouth-theme-ubuntu-logo \
-    ubuntu-gnome-desktop \
-    ubuntu-gnome-wallpapers
+        plymouth-themes \
+        ubuntu-gnome-desktop \
+        ubuntu-gnome-wallpapers
 
     # useful tools
     apt-get install -y \
-    clamav-daemon \
-    terminator \
-    apt-transport-https \
-    curl \
-    vim \
-    nano \
-    less
+        clamav-daemon \
+        terminator \
+        apt-transport-https \
+        curl \
+        vim \
+        nano \
+        less
 
     # purge
     apt-get purge -y \
-    transmission-gtk \
-    transmission-common \
-    gnome-mahjongg \
-    gnome-mines \
-    gnome-sudoku \
-    aisleriot \
-    hitori
+        transmission-gtk \
+        transmission-common \
+        gnome-mahjongg \
+        gnome-mines \
+        gnome-sudoku \
+        aisleriot \
+        hitori
 }
 
 # Used to version the configuration.  If breaking changes occur, manual
